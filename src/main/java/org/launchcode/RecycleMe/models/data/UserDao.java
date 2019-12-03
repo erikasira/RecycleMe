@@ -1,14 +1,7 @@
 package org.launchcode.RecycleMe.models.data;
+;
 
-import org.launchcode.RecycleMe.models.User;
-import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
 
-import javax.transaction.Transactional;
+public interface UserDao{
 
-@Repository
-@Transactional
-public interface UserDao extends CrudRepository<User,Integer> {
-
-    public User findByUsername(String username);
 }

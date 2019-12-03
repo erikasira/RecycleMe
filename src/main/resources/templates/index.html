@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<script src="https://kit.fontawesome.com/6c8663ccc4.js" crossorigin="anonymous"></script>
+<body class="container">
+
+<nav th:replace="fragments :: navigation"></nav>
+<h1 th:text="${title}">Default Title</h1>
+
+<hr>
+    <div class="index-title">
+    <h1>RecycleMe.</h1>
+    </div>
+
+
+    <div class="index-para">
+    <h3>Find a recycling location near you:</h3>
+    </div>
+
+
+    <div class="search-box">
+        <input class="search-txt" type="text" name="" placeholder="Search Your City">
+        <a class="search-btn" href="#">
+            <i class="fas fa-search-location"></i>
+
+        </a>
+    </div>
+
+</body>
+</html>

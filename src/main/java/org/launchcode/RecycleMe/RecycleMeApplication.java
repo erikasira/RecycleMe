@@ -7,7 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class RecycleMeApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RecycleMeApplication.class, args);
+
+	    SpringApplication.run(RecycleMeApplication.class, args);
 	}
 
 }

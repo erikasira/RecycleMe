@@ -1,14 +1,12 @@
 package org.launchcode.RecycleMe.models;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Transient;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue
@@ -32,6 +30,8 @@ public class User {
         this.username = username;
         this.password = password;
     }
+//====ADDED PUBLIC USER B/C IT TOLD ME TO....DELETE LINE 36 IF FAILS...
+    public User() {}
 
     public String getUsername() {
         return username;

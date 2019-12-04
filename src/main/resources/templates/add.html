@@ -1,10 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">Add Location</title>
 
-</body>
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <script type="text/javascript" th:src="@{/js/script.js}"></script>
+
+</head>
+    <body>
+        <h1>Add a new recycling location.</h1>
+
+        <form>
+            <div class = "add">
+                <label for="name"><b>Name of Location</b></label>
+                <input type="text" placeholder="Enter Location Name" name="name" required><br>
+
+                <label for="address" ><b>Street Address</b></label>
+                <input type="text" placeholder="Enter Street Address" name="address" required><br>
+
+                <label for="city" ><b>City</b></label>
+                <input type="text" placeholder="Enter City" name="city" required><br>
+
+                <label for="state" ><b>State</b></label>
+                <input type="text" placeholder="Enter State" name="state" required><br>
+
+                <button type="submit">Add Location</button>
+
+            </div>
+        </form>
+
+    </body>
 </html>

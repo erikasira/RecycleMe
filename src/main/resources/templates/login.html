@@ -1,10 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html lang="en"xmlns:th="http://www.thymeleaf.org/">
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">Login</title>
+
+    <nav th:replace="fragments :: navigation"></nav>
+
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <script type="text/javascript" th:src="@{/js/script.js}"></script>
 </head>
+<hr>
+
+
 <body>
+<h1>Log in to add a new recycling location.</h1>
+<form>
+    <div class="login">
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" required><br>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required><br>
+
+        <button type="submit">Login</button>
+    </div>
+
+</form>
+
+<div class="account">
+    <p>Don't have an account? <a href="register">Create one!</a></p>
+</div>
+
+
 
 </body>
 </html>

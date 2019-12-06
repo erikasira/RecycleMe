@@ -17,24 +17,25 @@
         <h1>Register</h1>
         <p>Create an account to add recycling locations.</p>
         <label th:for="username"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" th:field="*{username}"name="username" required><br>
+        <input type="text" placeholder="Enter Username" th:field="*{username}"name="username" required><br><br>
         <span th:errors="*{username}" class="error"></span>
 
         <label th:for="password"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" th:field="*{password}" name="password" required> <br>
+        <input type="password" placeholder="Enter Password" th:field="*{password}" name="password" required> <br><br>
         <span th:errors="*{password}" class="error"></span>
 
-        <label th:for="verifypassword"><b>Verify Password</b></label>
-        <input type="password" placeholder="Repeat Password" name="verifypassword" required><br>
+        <label th:for="verifyPassword"><b>Verify Password</b></label>
+        <input type="password" placeholder="Verify Password" th:field="*{verifyPassword}" name="verifyPassword" required><br><br>
         <span class="error" th:text="${verifyError}"></span>
 
         <button type="submit" class="registerbtn">Register</button>
     </div>
+    </form>
 
     <div class="signin">
         <p>Already have an account? <a href="login">Sign in</a>.</p>
     </div>
-    </form>
+
 
 
 </body>

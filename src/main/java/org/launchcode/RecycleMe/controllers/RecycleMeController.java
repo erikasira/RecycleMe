@@ -1,5 +1,6 @@
 package org.launchcode.RecycleMe.controllers;
 
+
 import org.launchcode.RecycleMe.models.User;
 import org.launchcode.RecycleMe.models.data.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,13 +11,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+
 import javax.validation.Valid;
 
+
 @Controller
+@RequestMapping("")
 
 public class RecycleMeController {
     @Autowired
-    private UserDao UserDao;
+    private UserDao userDao;
 
     @RequestMapping(value = "")
     public String index(Model model) {
@@ -30,30 +34,35 @@ public class RecycleMeController {
     public String register(Model model){
         //====== ADDED THIS TO TRY AND ACTUALLY REGISTER USERS, MAY NOT WORK=====
         // IN CASE OF FAILURE, DELETE EVERYTHING BEFORE RETURN REGISTER LINE
-        model.addAttribute(new User());
         model.addAttribute("title", "Register");
+        model.addAttribute(new User());
         return "register";
     }
 
     //====== ADDED THIS TO TRY AND ACTUALLY REGISTER USERS, MAY NOT WORK=====
     @RequestMapping(value = "register", method = RequestMethod.POST)
     public String add(Model model, @ModelAttribute @Valid User user,
-                      Errors errors, String verify) {
+                      Errors errors, String verifypassword) {
 
         model.addAttribute(user);
-        boolean passwordsMatch = true;
-        if (user.getPassword() == null || verify == null
-                || !user.getPassword().equals(verify)) {
-            passwordsMatch = false;
-            user.setPassword("");
-            model.addAttribute("verifyError", "Passwords must match");
+//        boolean passwordsMatch = true;
+//        if (user.getPassword() == null || verifypassword == null
+//                || !user.getPassword().equals(verifypassword)) {
+//            passwordsMatch = false;
+//            user.setPassword("");
+//            model.addAttribute("verifypassword", "Passwords must match");
+//        }
+
+        if (errors.hasErrors()) {
+            return "register";
+
         }
 
-        if (!errors.hasErrors() && passwordsMatch) {
-            return "index";
-        }
+     userDao.save(user);
+//        User myvaliduser = new User(user.getUsername(), user.getPassword());
+//        userDao.save(myvaliduser);
 
-        return "redirect:/add";
+        return "add";
     }
   //===========THIS IS THE END OF WHERE YOU WOULD WANT TO DELETE IF FAILS==========
 

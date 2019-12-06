@@ -31,8 +31,6 @@ body{
     height: 40px;
     border-radius: 40px;
     padding: 10 px;
-
-
 }
 
 .search-btn{
@@ -56,6 +54,6 @@ body{
     font-size: 20px;
     transition: 0.4s;
     line-height: 40px;
-    width: 240px;
+
 }
 

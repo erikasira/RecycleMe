@@ -1,4 +1,4 @@
-package org.launchcode.RecycleMe.models;
+package org.launchcode.RecycleMe.models.forms;
 
 
 import javax.persistence.*;
@@ -15,7 +15,7 @@ public class User {
     private int id;
 
     @NotNull
-    @Size(min= 5, max= 15)
+    @Size(min= 5, max= 15, message = "Username must be between 5 and 15 characters")
     private String username;
 
 
@@ -31,7 +31,7 @@ public class User {
         this.password = password;
         this.id = id;
     }
-//====ADDED PUBLIC USER B/C IT TOLD ME TO....DELETE LINE 36 IF FAILS...
+
     public User() {}
 
     public String getUsername() {

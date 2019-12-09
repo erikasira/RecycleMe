@@ -1,6 +1,8 @@
 package org.launchcode.RecycleMe.controllers;
 
 
+import org.launchcode.RecycleMe.models.forms.Location;
+import org.launchcode.RecycleMe.models.data.LocationDao;
 import org.launchcode.RecycleMe.models.forms.User;
 import org.launchcode.RecycleMe.models.data.UserDao;
 import org.launchcode.RecycleMe.models.forms.Login;
@@ -23,6 +25,9 @@ import javax.validation.Valid;
 public class RecycleMeController {
     @Autowired
     private UserDao userDao;
+
+    @Autowired
+    private LocationDao locationDao;
 
 
 
@@ -83,10 +88,10 @@ public class RecycleMeController {
         User user = userDao.findByUsername(form.getUsername());
         String password = form.getPassword();
 
-        if (user != null && user.getUsername().equalsIgnoreCase(user.getUsername())) {
-
-            return "add";
-        }
+//        if (user != null && user.getUsername().equalsIgnoreCase(user.getUsername())) {
+//
+//            return "add";
+//        }
 
         model.addAttribute("login", "Errors");
         user.setPassword("");
@@ -103,9 +108,21 @@ public class RecycleMeController {
 
 //=================BEGINNING CODE FOR ADDING LOCATIONS TO THE DATABASE=============
     @RequestMapping(method = RequestMethod.GET, value = "add")
-    public String add(Model model) {
-        return "add.html";
+    public String addLocation(Model model) {
+        model.addAttribute("title", "Add Location");
+        model.addAttribute(new Location());
+
+        return "add";
     }
+
+    @RequestMapping(value = "add", method = RequestMethod.POST)
+    public String addLocation(@ModelAttribute @Valid Location location, Model model) {
+        model.addAttribute(location);
+        locationDao.save(location);
+
+        return "index";
+    }
+
 //-----------END CODE FOR ADDING LOCATIONS TO DATABASE-----------------------------
 
 

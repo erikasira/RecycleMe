@@ -12,7 +12,8 @@ import javax.validation.constraints.Size;
 public class User {
     @Id
     @GeneratedValue
-    private int id;
+    @Column(name = "user_id")
+    private int userId;
 
     @NotNull
     @Size(min= 5, max= 15, message = "Username must be between 5 and 15 characters")
@@ -29,7 +30,7 @@ public class User {
     public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.id = id;
+        this.userId = userId;
     }
 
     public User() {}

@@ -9,60 +9,66 @@ import java.util.Set;
 @Entity
 public class Location {
 
-        @Id
-        @GeneratedValue
-        private int id;
+    @Id
+    @GeneratedValue
+    private int id;
 
-        @NotNull
-        @Size(message = "Please enter a location name.")
-        private String locationName;
-
-
-        @NotNull
-        @Size(message = "Please enter a Street Address.")
-        private String streetAddress;
-
-        @NotNull(message = "Please enter a City.")
-        private String city;
-
-        @NotNull
-        @Size(message = "Please enter a State.")
-        private String state;
-
-        @ManyToOne
-        @JoinColumn(name = "user_id")
-        private User user;
-
-        public Location(String locationName, String streetAddress, String city, String state) {
-            this.locationName = locationName;
-            this.streetAddress = streetAddress;
-            this.city = city;
-            this.state = state;
-        }
+    @NotNull
+    @Size(message = "Please enter a location name.")
+    private String locationName;
 
 
-        public Location() {}
-        public String getLocationName() {
-            return locationName;
-        }
+    @NotNull
+    @Size(message = "Please enter a Street Address.")
+    private String streetAddress;
 
-        public void setLocationName(String locationName) { this.locationName = locationName; }
+    @NotNull
+    @Size(message = "Please enter a City.")
+    private String city;
 
-        public String getStreetAddress() {
-            return streetAddress;
-        }
+    @NotNull
+    @Size(message = "Please enter a State.")
+    private String state;
 
-        public void setStreetAddress(String streetAddress) { this.streetAddress = streetAddress; }
+    @ManyToOne
+    private User user;
 
-        public String getCity() {
-            return city;
-        }
-
-        public void setCity(String city) { this.city = city; }
-
-        public String getState(String state) { return state; }
-
-        public void setState(String state) { this.state = state; }
+    public Location(String locationName, String streetAddress, String city, String state) {
+        this.locationName = locationName;
+        this.streetAddress = streetAddress;
+        this.city = city;
+        this.state = state;
+    }
 
 
+    public Location() {}
+    public String getLocationName() {
+        return locationName;
+    }
+
+    public void setLocationName(String locationName) { this.locationName = locationName; }
+
+    public String getStreetAddress() {
+        return streetAddress;
+    }
+
+    public void setStreetAddress(String streetAddress) { this.streetAddress = streetAddress; }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) { this.city = city; }
+
+    public String getState() { return state; }
+
+    public void setState(String state) { this.state = state; }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

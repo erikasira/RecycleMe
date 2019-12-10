@@ -7,13 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User {
     @Id
     @GeneratedValue
-    @Column(name = "user_id")
-    private int userId;
+    private int id;
 
     @NotNull
     @Size(min= 5, max= 15, message = "Username must be between 5 and 15 characters")
@@ -24,13 +25,18 @@ public class User {
     @Size(min=5, message = "Password must be at least 5 characters long")
     private String password;
 
+    @Transient
     @NotNull(message = "Passwords do not match")
     private String verifyPassword;
+
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    private List<Location> location = new ArrayList<>();
+
 
     public User(String username, String password) {
         this.username = username;
         this.password = password;
-        this.userId = userId;
     }
 
     public User() {}
@@ -67,5 +73,9 @@ public class User {
         }
 
 
+    }
+
+    public List<Location> getLocation() {
+        return location;
     }
 }

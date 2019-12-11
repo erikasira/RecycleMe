@@ -13,14 +13,28 @@
 
 
 <body>
+
+<!-- /login?error=true (recently added)-->
+<div th:if="${#request.getParameter('error') == 'true'}"
+     style="color:red;margin:10px 0px;">
+    Login Failed!<br/>
+    Reason :
+    <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
+          th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
+                Static summary
+            </span>
+</div>
+
+<!-- this is the end of the code you added-->
+
 <h1>Log in to add a new recycling location.</h1>
-<form>
+<form method="post" th:action="@{/login}">
     <div class="login">
         <label th:for="username"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="username" required><br><br>
 
-        <label th:for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required><br><br>
+        <label th:for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required><br><br>
 
         <button type="submit">Login</button>
     </div>

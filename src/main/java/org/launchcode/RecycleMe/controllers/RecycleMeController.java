@@ -1,6 +1,7 @@
 package org.launchcode.RecycleMe.controllers;
 
 
+import jdk.nashorn.internal.runtime.ErrorManager;
 import org.launchcode.RecycleMe.models.forms.Location;
 import org.launchcode.RecycleMe.models.data.LocationDao;
 import org.launchcode.RecycleMe.models.forms.User;
@@ -9,13 +10,15 @@ import org.launchcode.RecycleMe.models.forms.Login;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+//import org.springframework.web.bind.annotation.ModelAttribute;
+//import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestMethod;
+//import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 
@@ -51,7 +54,7 @@ public class RecycleMeController {
 
     @RequestMapping(value = "register", method = RequestMethod.POST)
     public String add(Model model, @ModelAttribute @Valid User user,
-                      Errors errors, String verifypassword) {
+                      Errors errors, String verifyPassword) {
 
         model.addAttribute(user);
 
@@ -73,30 +76,27 @@ public class RecycleMeController {
     @RequestMapping(method = RequestMethod.GET, value = "login")
     public String login(Model model) {
         model.addAttribute("title", "Log In");
-        model.addAttribute(new Login());
         return "login";
     }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    public String login(@ModelAttribute @Valid Login form, Errors errors, Model model) {
+    public String login(@RequestParam String username, @RequestParam String password, Model model, Errors errors) {
+        // check if username is not null then go to database and find user
 
         if (errors.hasErrors()) {
             model.addAttribute("title", "Log In");
             return "login";
         }
 
-        User user = userDao.findByUsername(form.getUsername());
-        String password = form.getPassword();
+        User myFoundUser = userDao.findByUsername(username);
+        if ( myFoundUser != null && password.equals(myFoundUser.getPassword())){
+            return "add";
+        }
 
-//        if (user != null && user.getUsername().equalsIgnoreCase(user.getUsername())) {
-//
-//            return "add";
-//        }
 
-        model.addAttribute("login", "Errors");
-        user.setPassword("");
 
-        return "login";
+
+        return "add";
     }
 
 //---------------ENDING CODE FOR USER LOGIN----------------------
@@ -111,14 +111,18 @@ public class RecycleMeController {
     public String addLocation(Model model) {
         model.addAttribute("title", "Add Location");
         model.addAttribute(new Location());
+        model.addAttribute("users", userDao.findAll());
 
         return "add";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String addLocation(@ModelAttribute @Valid Location location, Model model) {
-        model.addAttribute(location);
-        locationDao.save(location);
+    public String addLocation(@ModelAttribute @Valid Location newLocation,  Model model) {
+// @RequestParam int userId in above parenthesis
+//        User user = userDao.findOne(userId);
+//
+//        User user = userDao.findById(userId);
+        locationDao.save(newLocation);
 
         return "index";
     }

@@ -1,4 +1,4 @@
-package org.launchcode.RecycleMe.models.forms;
+package org.launchcode.RecycleMe.models;
 
 import javax.validation.constraints.NotNull;
 

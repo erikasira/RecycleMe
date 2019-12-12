@@ -1,7 +1,7 @@
 package org.launchcode.RecycleMe.models.data;
 
 
-import org.launchcode.RecycleMe.models.forms.User;
+import org.launchcode.RecycleMe.models.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

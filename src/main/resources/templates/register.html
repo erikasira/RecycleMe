@@ -1,18 +1,19 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
-    <head th:fragment="head">
-        <meta charset="UTF-8"/>
-        <title th:text="${title}">Register</title>
+<head th:fragment="head">
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">Register</title>
 
-        <nav th:replace="fragments :: navigation"></nav>
+    <nav th:replace="fragments :: navigation"></nav>
 
-        <link rel="stylesheet" th:href="@{/css/styles.css}"/>
-        <script type="text/javascript" th:src="@{/js/script.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <script type="text/javascript" th:src="@{/js/script.js}"></script>
 </head>
-    <hr>
+<hr>
 
 <body>
-    <form th:object="${user}" th:action="@{/register}" method="post">
+<form th:object="${user}" th:action="@{/register}" method="post">
     <div class="register">
         <h1>Register</h1>
         <p>Create an account to add recycling locations.</p>
@@ -30,12 +31,12 @@
 
         <button type="submit" class="registerbtn">Register</button>
     </div>
-    </form>
+</form>
 
-    <p> Once you have successfully created an account you will be directed to the login page.</p>
-    <div class="signin">
-        <p>Already have an account? <a href="login">Sign in</a>.</p>
-    </div>
+<p> Once you have successfully created an account you will be directed to the login page.</p>
+<div class="signin">
+    <p>Already have an account? <a href="login">Sign in</a>.</p>
+</div>
 
 
 

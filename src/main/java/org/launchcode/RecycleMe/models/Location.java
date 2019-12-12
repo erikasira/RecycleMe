@@ -1,9 +1,10 @@
-package org.launchcode.RecycleMe.models.forms;
+package org.launchcode.RecycleMe.models;
+
+import org.launchcode.RecycleMe.models.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Set;
 
 
 @Entity

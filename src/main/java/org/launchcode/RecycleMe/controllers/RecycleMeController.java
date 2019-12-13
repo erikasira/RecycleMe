@@ -30,12 +30,13 @@ public class RecycleMeController {
     private LocationDao locationDao;
 
 
-
-//===========THIS CODE DIRECTS TO HOMEPAGE===============
+//===========THIS CODE DIRECTS TO HOMEPAGE/SEARCH PAGE===============
     @RequestMapping(value = "")
     public String index(Model model) {
         return "index";
     }
+
+
 //----------------------------------------------------------------
 
 
@@ -78,13 +79,17 @@ public String getLoginForm() {
 }
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
-    public String login(@ModelAttribute(name = "User") User user, Model model) {
+    public String login(@ModelAttribute(name = "User") User user, Model model, Errors errors) {
         String username = user.getUsername();
         String password = user.getPassword();
 
         User myFoundUser = userDao.findByUsername(username);
         if ( myFoundUser != null && password.equals(myFoundUser.getPassword())){
             return "add";
+        }
+        if (errors.hasErrors()) {
+            return "login";
+
         }
         model.addAttribute("invalidCredentials", true);
         return "login";
@@ -99,28 +104,28 @@ public String getLoginForm() {
 
 
 
-//=================BEGINNING CODE FOR ADDING LOCATIONS TO THE DATABASE=============
-    @RequestMapping(method = RequestMethod.GET, value = "add")
-    public String addLocation(Model model) {
-        model.addAttribute("title", "Add Location");
-        model.addAttribute(new Location());
-        model.addAttribute("users", userDao.findAll());
-
-        return "add";
-    }
-
-    @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String addLocation(@ModelAttribute @Valid Location Location,  Model model) {
-// @RequestParam int userId in above parenthesis
-//        User user = userDao.findOne(userId);
+////=================BEGINNING CODE FOR ADDING LOCATIONS TO THE DATABASE=============
+//    @RequestMapping(method = RequestMethod.GET, value = "add")
+//    public String addLocation(Model model) {
+//        model.addAttribute("title", "Add Location");
+//        model.addAttribute(new Location());
+//        model.addAttribute("users", userDao.findAll());
 //
-//        User user = userDao.findById(userId);
-        locationDao.save(Location);
-
-        return "index";
-    }
-
-//-----------END CODE FOR ADDING LOCATIONS TO DATABASE-----------------------------
+//        return "add";
+//    }
+//
+//    @RequestMapping(value = "add", method = RequestMethod.POST)
+//    public String addLocation(@ModelAttribute @Valid Location Location,  Model model) {
+//// @RequestParam int userId in above parenthesis
+////        User user = userDao.findOne(userId);
+////
+////        User user = userDao.findById(userId);
+//        locationDao.save(Location);
+//
+//        return "index";
+//    }
+//
+////-----------END CODE FOR ADDING LOCATIONS TO DATABASE-----------------------------
 
 
 

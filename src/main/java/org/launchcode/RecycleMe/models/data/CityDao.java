@@ -1,19 +1,17 @@
 package org.launchcode.RecycleMe.models.data;
 
-import org.launchcode.RecycleMe.models.Location;
+import org.launchcode.RecycleMe.models.City;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
-import java.util.ArrayList;
+
 
 @Repository
 @Transactional
-public interface LocationDao extends CrudRepository<Location, Integer> {
+public interface CityDao extends CrudRepository<City, Integer> {
 
 
-
-
-    Location findById(int locationId);
+    City findById(int cityId);
 
 }

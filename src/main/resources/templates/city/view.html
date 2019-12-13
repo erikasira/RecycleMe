@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+
+<ul>
+    <li th:each="location: ${city.locations}" th:text="${city.locations}"></li>
+</ul>
+
+<p><a th:href="'/city/add-item/' + ${city.id}">Add Recycling Location to this City</a></p>
+
+</body>
+</html>

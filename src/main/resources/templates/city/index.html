@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<ul>
+    <li th:each="city: ${cities}">
+        <a th:href="@{'/city/view/' + ${city.id}}" th:text="${city.name}"></a>
+    </li>
+</ul>
+
+<a th:href="@{'/city/add/'}">Add City</a>
+
+</body>
+</html>

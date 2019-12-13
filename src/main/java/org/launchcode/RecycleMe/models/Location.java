@@ -1,7 +1,5 @@
 package org.launchcode.RecycleMe.models;
 
-import org.launchcode.RecycleMe.models.User;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -23,8 +21,6 @@ public class Location {
     @Size(message = "Please enter a Street Address.")
     private String streetAddress;
 
-    @NotNull
-    @Size(message = "Please enter a City.")
     private String city;
 
     @NotNull
@@ -55,11 +51,11 @@ public class Location {
 
     public void setStreetAddress(String streetAddress) { this.streetAddress = streetAddress; }
 
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) { this.city = city; }
+//    public String getCity() {
+//        return city;
+//    }
+//
+//    public void setCity(City city) { this.city = city; }
 
     public String getState() { return state; }
 
@@ -71,5 +67,13 @@ public class Location {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }

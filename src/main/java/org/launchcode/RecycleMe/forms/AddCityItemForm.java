@@ -42,5 +42,6 @@ public class AddCityItemForm {
     public int getLocationId() {
         return locationId;
     }
+
 }
 

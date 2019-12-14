@@ -37,7 +37,7 @@ public class User {
 //    private Set<Role> roles;
 //------------------------------------------------------------------------------------
     @OneToMany
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "cityId")
     private List<Location> location = new ArrayList<>();
 
 

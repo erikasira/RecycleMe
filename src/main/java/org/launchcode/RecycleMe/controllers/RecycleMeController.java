@@ -85,14 +85,14 @@ public String getLoginForm() {
 
         User myFoundUser = userDao.findByUsername(username);
         if ( myFoundUser != null && password.equals(myFoundUser.getPassword())){
-            return "add";
+            return "city/index";
         }
         if (errors.hasErrors()) {
             return "login";
 
         }
         model.addAttribute("invalidCredentials", true);
-        return "login";
+        return "city/index";
 
     }
 
@@ -124,7 +124,7 @@ public String getLoginForm() {
 //
 //        return "index";
 //    }
-//
+
 ////-----------END CODE FOR ADDING LOCATIONS TO DATABASE-----------------------------
 
 

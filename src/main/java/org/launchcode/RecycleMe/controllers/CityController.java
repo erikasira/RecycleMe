@@ -22,22 +22,27 @@ public class CityController {
     @Autowired
     private LocationDao locationDao;
 
-    @RequestMapping(value="")
+
+    //=================INDEX PAGE FOR CITIES - DISPLAYS AND LINKS TO ALL CITIES THAT HAVE BEEN ADDED TO DATABASE===========
+    @RequestMapping(value = "")
     public String index(Model model) {
         model.addAttribute("title", "Cities");
         model.addAttribute("cities", cityDao.findAll());
 
         return "city/index";
     }
+//==========================END OF DISPLAY OF CITIES THAT HAVE BEEN ENTERED=====================================
 
-    @RequestMapping(value="add", method = RequestMethod.GET)
+
+    //==================THIS IS TO ADD A NEW CITY=============================================================
+    @RequestMapping(value = "add", method = RequestMethod.GET)
     public String add(Model model) {
         model.addAttribute(new City());
         model.addAttribute("title", "Add City");
         return "city/add";
     }
 
-    @RequestMapping(value="add", method = RequestMethod.POST)
+    @RequestMapping(value = "add", method = RequestMethod.POST)
     public String add(Model model, @ModelAttribute @Valid City city, Errors errors) {
         if (errors.hasErrors()) {
             return "city/add";
@@ -48,35 +53,44 @@ public class CityController {
 
     @RequestMapping(value = "view/{cityId}", method = RequestMethod.GET)
     public String viewCity(Model model, @PathVariable int cityId) {
-        City city= cityDao.findById(cityId);
+        City city = cityDao.findById(cityId);
         model.addAttribute("city", city);
         model.addAttribute("title", city.getName());
         return "city/view";
     }
+//==================END OF ADDING A NEW CITY========================================================
 
+
+
+
+
+
+//================CODE FOR ADDING NEW LOCATIONS TO DATABASE--SUPPOSED TO BE LOCATION FOR EACH CITY============================
     @RequestMapping(value="add-item/{cityId}", method = RequestMethod.GET)
     public String addItem(Model model, @PathVariable int cityId) {
+
         City city = cityDao.findById(cityId);
-
-        AddCityItemForm addCityItemForm = new AddCityItemForm(city, locationDao.findAll());
-
+        model.addAttribute("cityId", cityId );
+        model.addAttribute(new Location());
         model.addAttribute("title", "Add a Recycling Location to the City of: " + city.getName());
-        model.addAttribute("form", addCityItemForm);
 
         return "city/add-item";
     }
 
     @RequestMapping(value="add-item", method = RequestMethod.POST)
-    public String addItem(Model model, @ModelAttribute @Valid AddCityItemForm addCityItemForm, Errors errors, @RequestParam int cityId, @RequestParam int locationId) {
+    public String addItem(Model model, @ModelAttribute @Valid Location Location, Errors errors, @RequestParam int cityId, @RequestParam int locationId) {
         if (errors.hasErrors()) {
+            model.addAttribute("title", "Add Location");
             return "city/add-item";
         }
 
         City city = cityDao.findById(cityId);
-        Location location = locationDao.findById(locationId);
-        city.addItem(location);
-        locationDao.save(location);
-
+        city.addItem(Location);
+        locationDao.save(Location);
         return "redirect:/city/view/" + city.getId();
+
+
     }
+
+//==============END LOCATION TO CITY DATABASE CODE====================================================================================
 }

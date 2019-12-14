@@ -1,8 +1,11 @@
 package org.launchcode.RecycleMe.models;
 
+import org.launchcode.RecycleMe.forms.AddCityItemForm;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 
 @Entity
@@ -13,6 +16,9 @@ public class Location {
     private int id;
 
     @NotNull
+    private int cityId;
+
+    @NotNull
     @Size(message = "Please enter a location name.")
     private String locationName;
 
@@ -21,24 +27,31 @@ public class Location {
     @Size(message = "Please enter a Street Address.")
     private String streetAddress;
 
-    private String city;
+    @NotNull
+    @Size(message = "Please enter a City.")
+    private String cityName;
 
     @NotNull
     @Size(message = "Please enter a State.")
     private String state;
 
-    @ManyToOne
-    private User user;
 
-    public Location(String locationName, String streetAddress, String city, String state) {
+//    @ManyToMany(mappedBy = "locations")
+//    private List<City> cities;
+
+
+    public Location(String locationName, String streetAddress, String cityName, String state) {
         this.locationName = locationName;
         this.streetAddress = streetAddress;
-        this.city = city;
+        this.cityName = cityName;
         this.state = state;
     }
 
 
     public Location() {}
+
+
+
     public String getLocationName() {
         return locationName;
     }
@@ -51,29 +64,22 @@ public class Location {
 
     public void setStreetAddress(String streetAddress) { this.streetAddress = streetAddress; }
 
-//    public String getCity() {
-//        return city;
-//    }
-//
-//    public void setCity(City city) { this.city = city; }
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
 
     public String getState() { return state; }
 
     public void setState(String state) { this.state = state; }
 
-    public User getUser() {
-        return user;
+    public int getCityId() {
+        return cityId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 
-    public String getCity() {
-        return city;
-    }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
 }

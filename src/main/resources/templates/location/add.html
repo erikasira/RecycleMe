@@ -16,24 +16,31 @@
 
 <h1 th:text="${title}">Default Title</h1>
 
-<form th:object="${location}" action="/add-item" method="post">
-    <div class = "add">
+
+<form th:object="${location}" action="add" method="post">
+    <div class = "form-group">
         <label th:for="locationName"><b>Name of Location</b></label>
         <input type="text" placeholder="Enter Location Name" name="locationName" required><br><br>
 
         <label th:for="streetAddress" ><b>Street Address</b></label>
         <input type="text" placeholder="Enter Street Address" name="streetAddress" required><br><br>
+    </div>
 
-        <label th:for="cityName" ><b>City</b></label>
-        <input type="text" placeholder="Enter City" name="cityName" required><br><br>
-
-        <label th:for="state"><b>State</b></label>
-        <input type="text" placeholder="Enter State" name="state" required><br><br>
-
-        <button type="submit">Add Location</button>
+    <div class="form-group">
+        <label th:for="cityId">City</label>
+        <select name="cityId">
+            <option th:each="city: ${cities}"
+                    th:text="${city.name}"
+                    th:value="${city.id}"></option>
+        </select>
 
     </div>
+
+
+    <input type="submit" value="Add Location" />
 </form>
+
 <p>Once you hit submit you will be redirected to the <a href="/">Homepage</a>.</p>
+
 </body>
 </html>

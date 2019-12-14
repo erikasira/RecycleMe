@@ -1,6 +1,5 @@
 package org.launchcode.RecycleMe.models;
 
-import org.launchcode.RecycleMe.forms.AddCityItemForm;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -27,13 +26,13 @@ public class Location {
     @Size(message = "Please enter a Street Address.")
     private String streetAddress;
 
-    @NotNull
-    @Size(message = "Please enter a City.")
-    private String cityName;
-
-    @NotNull
-    @Size(message = "Please enter a State.")
-    private String state;
+//    @NotNull
+//    @Size(message = "Please enter a City.")
+//    private String cityName;
+//
+//    @NotNull
+//    @Size(message = "Please enter a State.")
+//    private String state;
 
 
 //    @ManyToMany(mappedBy = "locations")
@@ -43,8 +42,8 @@ public class Location {
     public Location(String locationName, String streetAddress, String cityName, String state) {
         this.locationName = locationName;
         this.streetAddress = streetAddress;
-        this.cityName = cityName;
-        this.state = state;
+//        this.cityName = cityName;
+//        this.state = state;
     }
 
 
@@ -64,22 +63,23 @@ public class Location {
 
     public void setStreetAddress(String streetAddress) { this.streetAddress = streetAddress; }
 
-    public String getCityName() {
-        return cityName;
-    }
-
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
-    }
-
-    public String getState() { return state; }
-
-    public void setState(String state) { this.state = state; }
+//    public String getCityName() {
+//        return cityName;
+//    }
+//
+//    public void setCityName(String cityName) {
+//        this.cityName = cityName;
+//    }
+//
+//    public String getState() { return state; }
+//
+//    public void setState(String state) { this.state = state; }
 
     public int getCityId() {
         return cityId;
     }
 
 
-
+    public void setCity(City cat) {
+    }
 }

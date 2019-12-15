@@ -20,7 +20,7 @@ public class CityController {
 //===========================THIS CODE ALLOWS USERS TO VIEW AND ENTER NEW CITIES TO THE SITE================================
     @RequestMapping(value="")
     public String index(Model model) {
-        model.addAttribute("title", "Cities in Florida");
+        model.addAttribute("title", "Florida Cities");
         model.addAttribute("cities", cityDao.findAll());
         return "city/index";
     }

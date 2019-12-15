@@ -83,14 +83,14 @@ public String getLoginForm() {
 
         User myFoundUser = userDao.findByUsername(username);
         if ( myFoundUser != null && password.equals(myFoundUser.getPassword())){
-            return "city/index";
+            return "redirect:/location";
         }
         if (errors.hasErrors()) {
             return "login";
 
         }
         model.addAttribute("invalidCredentials", true);
-        return "city/index";
+        return "redirect:/location";
 
     }
 

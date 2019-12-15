@@ -3,7 +3,7 @@
 <head th:replace="fragments :: head"></head>
 <link href="https://fonts.googleapis.com/css?family=Passion+One&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Jaldi&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css?family=Poppins:600,800&display=swap" rel="stylesheet">
 
 <body class="container">
 
@@ -18,11 +18,15 @@
 <div class="location-index">
     <p>This is a list of Recycling locations in Florida. <br>
         Don't be shy and share any recycling locations we should be aware of!<br>
-    <h3>Let's save our planet!</h3>
+    <h3>Reduce, Reuse, Recycle!</h3>
+
+    <!--SEARCH BAR HTML-->
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for locations..">
+
 <p th:unless="${locations} and ${locations.size()}">No locations posted yet! Add one!</p>
 
 
-<table class="table">
+<table id="myTable" class="table">
 
     <tr>
         <th>Name</th>

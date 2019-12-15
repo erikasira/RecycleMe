@@ -6,25 +6,30 @@
 
 
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
-    <link href="https://fonts.googleapis.com/css?family=Jaldi&display=swap" rel="stylesheet">    <script type="text/javascript" th:src="@{/js/script.js}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600,800&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Jaldi&display=swap" rel="stylesheet">
+    <script type="text/javascript" th:src="@{/js/script.js}"></script>
 
 </head>
 
 <body>
-<nav th:fragment="mainNavigation" class="topnav">
 
-    <a href="/">RecycleMe.</a>
+
+<nav th:fragment="mainNavigation" class="topnav" text-decoration="none">
+
+    <a class="noDecoration" href="/">RecycleMe.</a>
 
 
 <!--    <a style="float:right" href="/register"> Register </a>-->
 <!--    <a style="float:right" href="/login">Log In |</a>-->
 </nav>
 
-<nav th:fragment="recycleNavigation" class="topnav">
+<nav th:fragment="recycleNavigation" class="topnav" text-decoration="none">
 
-        <a href="/city">Cities</a>
-        <a href="/location">Recycling Locations</a>
-        <a style="float:right"href="/">Log Out</a>
+        <a class="noDecoration" href="/city">Cities</a>
+        <a class="noDecoration" href="/location">Locations</a>
+        <a class="noDecoration" style="float:right"href="/">Log Out</a>
 
 </nav>
 

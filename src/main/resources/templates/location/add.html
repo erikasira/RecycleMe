@@ -16,7 +16,7 @@
 <h1 th:text="${title}">Default Title</h1>
 
 
-<form th:object="${location}" action="add" method="post">
+<form th:object="${location}"  method="post">
     <div class = "form-group">
         <label th:for="locationName"><b>Name of Location</b></label>
         <input type="text" placeholder="Enter Location Name" name="locationName" required><br><br>

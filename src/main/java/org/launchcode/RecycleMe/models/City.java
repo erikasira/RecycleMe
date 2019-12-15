@@ -18,7 +18,7 @@ public class City {
     private String name;
 
     @OneToMany
-    @JoinColumn(name = "cityId")
+    @JoinColumn(name = "city_id")
     private List<Location> locations = new ArrayList<>();
 
     public City(String name) {

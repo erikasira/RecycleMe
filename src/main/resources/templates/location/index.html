@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
+<link href="https://fonts.googleapis.com/css?family=Passion+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Jaldi&display=swap" rel="stylesheet">
+
 
 <body class="container">
 
-<h1 th:text="${title}">Default Title</h1>
-
 <nav th:replace="fragments :: recycleNavigation"></nav>
 
-<p th:unless="${locations} and ${locations.size()}">No locations posted</p>
+
+<div class="page-head">
+<h1 th:text="${title}">Default Title</h1>
+</div>
+
+
+<div class="location-index">
+    <p>This is a list of Recycling locations in Florida. <br>
+        Don't be shy and share any recycling locations we should be aware of!<br>
+    <h3>Let's save our planet!</h3>
+<p th:unless="${locations} and ${locations.size()}">No locations posted yet! Add one!</p>
 
 
 <table class="table">
@@ -27,8 +38,8 @@
 
 </table>
 
-<a th:href="@{'/location/add/'}">Click Here to Add a New Location</a>
+<a class="submit-button" th:href="@{'/location/add/'}">Click Here to Add a New Location</a>
 <!--<nav th:replace="fragments :: cheesenavigation"></nav>-->
-
+</div>
 </body>
 </html>

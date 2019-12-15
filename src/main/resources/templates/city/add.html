@@ -2,20 +2,33 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 
+<link href="https://fonts.googleapis.com/css?family=Passion+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Jaldi&display=swap" rel="stylesheet">
+
 <body class="container">
 
 <nav th:replace="fragments :: recycleNavigation"></nav>
 
-<div class="container body-content">
 
+
+<div class="page-head">
+    <h1>Add a New City.</h1>
+</div>
+
+
+
+<div class="container body-content">
+<br>
     <form th:object="${city}" method="post">
 
         <div class="form-group" th:classappend="${#fields.hasErrors('name') ? 'has-error' : ''}" >
-            <label th:for="name">City</label>
-            <input type="text" class="form-control" th:field="*{name}"/>
+            <label th:for="name"></label>
+            <input class="form-control" th:field="*{name}" placeholder="Enter City Name"/>
             <span th:errors="*{name}"></span>
+            <br><br>
+            <input class="submit-button" type="submit" value="Submit New City" />
         </div>
-        <input type="submit" value="Add Category" />
+
     </form>
 
 </div>

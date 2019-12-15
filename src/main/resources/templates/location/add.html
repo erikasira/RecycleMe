@@ -6,14 +6,17 @@
     <nav th:replace="fragments :: recycleNavigation"></nav>
 
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <link href="https://fonts.googleapis.com/css?family=Passion+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Jaldi&display=swap" rel="stylesheet">
     <script type="text/javascript" th:src="@{/js/script.js}"></script>
 
 </head>
-<hr>
+
 
 <body>
-
+<div class="page-head">
 <h1 th:text="${title}">Default Title</h1>
+</div>
 
 
 <form th:object="${location}"  method="post">
@@ -23,23 +26,21 @@
 
         <label th:for="streetAddress" ><b>Street Address</b></label>
         <input type="text" placeholder="Enter Street Address" name="streetAddress" required><br><br>
-    </div>
 
-    <div class="form-group">
         <label th:for="cityId">City</label>
         <select name="cityId">
             <option th:each="city: ${cities}"
                     th:text="${city.name}"
                     th:value="${city.id}"></option>
         </select>
-
+        <br><br>
+        <input type="submit" class="submit-button"value="Add Location" />
+        <p>Don't see your city as an option? <a href="/city/add">Add it to the list!</a></p>
     </div>
 
-
-    <input type="submit" value="Add Location" />
 </form>
 
-<p>Don't see your city as an option? <a href="/city/add">Add it to the list!</a></p>
+
 
 </body>
 </html>

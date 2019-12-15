@@ -3,9 +3,14 @@ body{
     padding: 0;
     background: #E8E6E5;
 }
+.page-head{
+   text-align: center;
+   font-family: 'Passion One', cursive;
+
+}
 
 .index-title{
-    font-family: 'Heebo:900', sans-serif;
+    font-family: 'Passion One', cursive;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -14,7 +19,8 @@ body{
  }
 
 .index-para{
-    font-family: 'Heebo:300', sans-serif;
+    text-align: center;
+    font-family: 'Jaldi', sans-serif;
     position: fixed;
     top: 60%;
     left: 50%;
@@ -22,43 +28,84 @@ body{
     margin-left: -150px;
 }
 
-.search-box{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #2F3650;
-    height: 40px;
-    border-radius: 40px;
-    padding: 10 px;
-}
 
-.search-btn{
-    color: #1CEAA5;
-    float: right;
-    width: 50px;
-    border-radius: 50%;
-    display; flex;
-    justify-content: center;
-    align-items: center;
-    line-height: 40px;
-}
-
-.search-txt{
-    border:none;
-    background: none;
-    outline: none;
-    float: left;
-    padding: 0;
-    color: white;
-    font-size: 20px;
-    transition: 0.4s;
-    line-height: 40px;
-
-}
 
 .error{
     color: red;
 
 }
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  font-family: 'Jaldi', sans-serif;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.submit-button{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 24px;;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 8px;
+
+}
+
+.login{
+   text-align: center;
+   font-family: 'Jaldi', sans-serif;
+}
+
+.register{
+   text-align: center;
+   font-family: 'Jaldi', sans-serif;
+}
+
+.form-group{
+   text-align: center;
+}
+
+.topnav{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #4682B4;
+  font-family: 'Jaldi', sans-serif;
+  display: block;
+  color: white;
+  padding: 14px 16px;
+  border: 1px solid #e7e7e7;
+  border-right: 1px solid #bbb;
+
+}
+
+.location-index{
+   text-align: center;
+   font-family: 'Jaldi', sans-serif;
+
+}
+
+.city-index{
+   text-align: center;
+   font-family: 'Jaldi', sans-serif;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 

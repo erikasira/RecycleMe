@@ -4,14 +4,14 @@ package org.launchcode.RecycleMe.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.List;
+
 
 
 @Entity
 public class Location {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
 
 //    @NotNull

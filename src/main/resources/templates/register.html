@@ -7,14 +7,20 @@
     <nav th:replace="fragments :: mainNavigation"></nav>
 
     <link rel="stylesheet" th:href="@{/css/styles.css}"/>
+    <link href="https://fonts.googleapis.com/css?family=Passion+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Jaldi&display=swap" rel="stylesheet">
     <script type="text/javascript" th:src="@{/js/script.js}"></script>
 </head>
-<hr>
+
 
 <body>
+<div class="page-head">
+    <h1>Register</h1>
+</div>
+
 <form th:object="${user}" th:action="@{/register}" method="post">
     <div class="register">
-        <h1>Register</h1>
+
         <p>Create an account to add recycling locations.</p>
         <label th:for="username"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" th:field="*{username}"name="username" required><br>
@@ -28,14 +34,13 @@
         <input type="password" placeholder="Verify Password" th:field="*{verifyPassword}" name="verifyPassword" required><br><br>
         <span th:errors="*{verifyPassword}" class="error"></span><br>
 
-        <button type="submit" class="registerbtn">Register</button>
+        <button type="submit" class="submit-button">Register</button>
+
+        <p> Once you have successfully created an account you will be directed to the login page.</p>
+
+        <p>Already have an account? <a href="login">Sign in</a>.</p>
     </div>
 </form>
-
-<p> Once you have successfully created an account you will be directed to the login page.</p>
-<div class="signin">
-    <p>Already have an account? <a href="login">Sign in</a>.</p>
-</div>
 
 
 

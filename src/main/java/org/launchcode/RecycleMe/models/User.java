@@ -14,7 +14,7 @@ import java.util.Set;
 @Entity
 public class User {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
 
     @NotNull

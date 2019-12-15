@@ -2,16 +2,30 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 
+<link href="https://fonts.googleapis.com/css?family=Passion+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Jaldi&display=swap" rel="stylesheet">
+
 <body class="container">
 
-<h1 th:text="${title}">Default Title</h1>
-
 <nav th:replace="fragments :: recycleNavigation"></nav>
+
+
+<div class="page-head">
+<h1 th:text="${title}">Default Title</h1>
+</div>
+
+
+<div class = "city-index">
+    <p>Clearly, this isn't a list of all the cities in the state of Florida.<br>
+        This is a list of cities we have recycling locations for. Don't see your city?<br>
+        Add it to our growing list!</p>
+    <hr>
 <ul>
     <li th:each="city: ${cities}" th:text="${city.name}"></li>
 </ul>
 
-<a th:href="@{'/city/add/'}">Add City</a>
+<a class="submit-button" th:href="@{'/city/add/'}">Add A New City to our List!</a>
+</div>
 
 </body>
 </html>

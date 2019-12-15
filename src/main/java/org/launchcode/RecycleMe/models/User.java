@@ -36,9 +36,7 @@ public class User {
 //    @JoinTable(name = "user_location", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "location_id"))
 //    private Set<Role> roles;
 //------------------------------------------------------------------------------------
-    @OneToMany
-    @JoinColumn(name = "cityId")
-    private List<Location> location = new ArrayList<>();
+
 
 
     public User(String username, String password) {
@@ -97,8 +95,5 @@ public class User {
 
     }
 
-    public List<Location> getLocation() {
-        return location;
-    }
 
 }

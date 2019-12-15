@@ -26,6 +26,11 @@ public class Location {
     @Size(message = "Please enter a Street Address.")
     private String streetAddress;
 
+//    @ManyToOne
+//    private City city;
+
+
+
 //    @NotNull
 //    @Size(message = "Please enter a City.")
 //    private String cityName;
@@ -49,7 +54,13 @@ public class Location {
 
     public Location() {}
 
-
+//    public City getCity() {
+//        return city;
+//    }
+//
+//    public void setCity(City city) {
+//        this.city = city;
+//    }
 
     public String getLocationName() {
         return locationName;

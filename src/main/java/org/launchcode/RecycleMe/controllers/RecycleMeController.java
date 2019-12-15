@@ -73,8 +73,6 @@ public class RecycleMeController {
 //============BEGINNING CODE FOR USER LOGIN======================
 @RequestMapping(method = RequestMethod.GET, value = "login")
 public String getLoginForm() {
-//        model.addAttribute(new User());
-//        model.addAttribute("title", "Login page");
     return "login";
 }
 
@@ -100,41 +98,4 @@ public String getLoginForm() {
 //---------------ENDING CODE FOR USER LOGIN----------------------
 
 
-
-
-
-
-////=================BEGINNING CODE FOR ADDING LOCATIONS TO THE DATABASE=============
-//    @RequestMapping(method = RequestMethod.GET, value = "add")
-//    public String addLocation(Model model) {
-//        model.addAttribute("title", "Add Location");
-//        model.addAttribute(new Location());
-//        model.addAttribute("users", userDao.findAll());
-//
-//        return "add";
-//    }
-//
-//    @RequestMapping(value = "add", method = RequestMethod.POST)
-//    public String addLocation(@ModelAttribute @Valid Location Location,  Model model) {
-//// @RequestParam int userId in above parenthesis
-////        User user = userDao.findOne(userId);
-////
-////        User user = userDao.findById(userId);
-//        locationDao.save(Location);
-//
-//        return "index";
-//    }
-
-////-----------END CODE FOR ADDING LOCATIONS TO DATABASE-----------------------------
-
-
-
-
-
-//================BEGINNING CODE FOR GETTING LOCATION RESULTS FROM DATABASE=======================
-    @RequestMapping(method = RequestMethod.GET, value = "results")
-    public String results(Model model) {
-        return "results.html";
-    }
-//------------------- ENDING CODE FOR RESULT -----------------------------------------------
 }

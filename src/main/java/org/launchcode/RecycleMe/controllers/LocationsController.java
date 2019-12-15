@@ -24,6 +24,7 @@ public class LocationsController {
     @Autowired
     private CityDao cityDao;
 
+//===============================THIS CODE ALLOWS USERS TO ENTER NEW LOCATIONS BASED ON CITIES ALREADY ENTERED===========================
 
     @RequestMapping(value = "")
     public String index(Model model) {

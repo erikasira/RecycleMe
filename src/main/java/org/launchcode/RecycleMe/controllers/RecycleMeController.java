@@ -90,7 +90,7 @@ public String getLoginForm() {
 
         }
         model.addAttribute("invalidCredentials", true);
-        return "redirect:/location";
+        return "login";
 
     }
 

@@ -32,18 +32,43 @@
         <th>Name</th>
         <th>Street Address</th>
         <th>City</th>
+        <th>State</th>
     </tr>
 
     <tr th:each="location : ${locations}">
         <td th:text="${location.locationName}"></td>
         <td th:text="${location.streetAddress}"></td>
-        <td th:text="${location.city.name}"></td>
+        <td th:text="${location.nameCity}"></td>
+        <td th:text="${location.nameState}"></td>
     </tr>
 
 </table>
 
+<script>
+function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+
 <a class="submit-button" th:href="@{'/location/add/'}">Click Here to Add a New Location</a>
-<!--<nav th:replace="fragments :: cheesenavigation"></nav>-->
 </div>
 </body>
 </html>

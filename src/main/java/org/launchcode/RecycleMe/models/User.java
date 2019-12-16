@@ -30,13 +30,6 @@ public class User {
     @NotNull(message = "Passwords do not match")
     private String verifyPassword;
 
-//    private String status;
-//-----the following was taken from Ni's code--not currently working
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(name = "user_location", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "location_id"))
-//    private Set<Role> roles;
-//------------------------------------------------------------------------------------
-
 
 
     public User(String username, String password) {
@@ -72,20 +65,6 @@ public class User {
         checkPassword();
     }
 
-//    public Set<Role> getRoles() {
-//        return roles;
-//    }
-//
-//    public void setRoles(Set<Role> roles) {
-//        this.roles = roles;
-////    }
-//    public String getStatus() {
-//        return status;
-//    }
-//
-//    public void setStatus(String status) {
-//        this.status = status;
-//    }
 
     private void checkPassword(){
         if (password != null && verifyPassword != null && !password.equals(verifyPassword)) {

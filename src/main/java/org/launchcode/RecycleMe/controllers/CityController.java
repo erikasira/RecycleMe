@@ -14,6 +14,7 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping(value = "city")
 public class CityController {
+
     @Autowired
     private CityDao cityDao;
 

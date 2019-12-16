@@ -22,9 +22,7 @@ public class City {
     @Size(min=3, max=15)
     private String name;
 
-    @OneToMany
-    @JoinColumn(name = "city_id")
-    private List<Location> locations = new ArrayList<>();
+
 
     public City(String name) {
         this.name = name;
@@ -49,13 +47,6 @@ public class City {
         this.name = name;
     }
 
-    public List<Location> getLocations() {
-        return locations;
-    }
-
-    public void addItem(Location item) {
-        locations.add(item);
-    }
 
 
 }

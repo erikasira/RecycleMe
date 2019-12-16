@@ -6,16 +6,14 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 
-
 @Entity
 public class Location {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue
     private int id;
 
-//    @NotNull
-//    private int cityId;
+
 
     @NotNull
     @Size(message = "Please enter a location name.")
@@ -26,21 +24,46 @@ public class Location {
     @Size(message = "Please enter a Street Address.")
     private String streetAddress;
 
-    @ManyToOne
-    private City city;
+    @NotNull
+    @Size(message = "Please enter a city.")
+    private String nameCity;
+
+    @NotNull
+    @Size(message = "Please enter a state.")
+    private String nameState;
 
 
 
-    public Location(String locationName, String streetAddress, String cityName, String state) {
+
+//    @ManyToOne
+//    private City city;
+
+
+
+    public Location(String locationName, String streetAddress ) {
         this.locationName = locationName;
         this.streetAddress = streetAddress;
+        this.nameCity = nameCity;
+        this.nameState = nameState;
     }
 
 
     public Location() {}
 
-    public City getCity() {
-        return city;
+//    public City getCity() {
+//        return city;
+//    }
+//    public void setCity(City cat) {
+//        this.city = city;
+//    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getLocationName() {
@@ -55,13 +78,19 @@ public class Location {
 
     public void setStreetAddress(String streetAddress) { this.streetAddress = streetAddress; }
 
+    public String getNameCity() {
+        return nameCity;
+    }
 
-//    public int getCityId() {
-//        return cityId;
-//    }
+    public void setNameCity(String nameCity) {
+        this.nameCity = nameCity;
+    }
 
+    public String getNameState() {
+        return nameState;
+    }
 
-    public void setCity(City cat) {
-        this.city = city;
+    public void setNameState(String nameState) {
+        this.nameState = nameState;
     }
 }

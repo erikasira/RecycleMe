@@ -11,9 +11,6 @@ import java.util.ArrayList;
 @Transactional
 public interface LocationDao extends CrudRepository<Location, Integer> {
 
-
-
-
     Location findById(int locationId);
 
 }

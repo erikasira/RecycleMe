@@ -16,12 +16,13 @@
 
 
 <div class="location-index">
-    <p>This is a list of Recycling locations in Florida. <br>
+    <p><strong>We need your help!</strong> <br>
         Don't be shy and share any recycling locations we should be aware of!<br>
+        Scroll down to add a new location to our list!<br>
     <h3>Reduce, Reuse, Recycle!</h3>
 
     <!--SEARCH BAR HTML-->
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for locations..">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search by City">
 
 <p th:unless="${locations} and ${locations.size()}">No locations posted yet! Add one!</p>
 
@@ -55,7 +56,7 @@ function myFunction() {
 
   // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
+    td = tr[i].getElementsByTagName("td")[2];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {

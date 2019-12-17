@@ -29,7 +29,7 @@ public class Location {
     private String nameCity;
 
     @NotNull
-    @Size(message = "Please enter a state.")
+    @Size(max=2, message = "Please enter a state.")
     private String nameState;
 
 

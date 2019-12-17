@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<link href="https://fonts.googleapis.com/css?family=Passion+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Jaldi&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+
+<body class="container">
+
+<nav th:replace="fragments :: recycleNavigation"></nav>
+
+
+<div class="page-head">
+<h1 th:text="${title}">Default Title</h1>
+</div>
+
+
+<div class = "city-index">
+    <p>Below are a list of resources for recycling. <br>
+
+<div class="mid-page">
+    <hr>
+
+
+<ul id="id01">
+<!--    <li th:each="city: ${cities}" th:text="${city.name}"></li>-->
+    <li><a href="https://www.epa.gov/recycle" target="_blank">United States Environment Protection Agency (EPA)</a></li>
+    <li><a href="https://resource-recycling.com/" target="_blank">Resource Recycling, Inc.</a></li>
+    <li><a href="https://recyclingsimplified.com/residential-resources/" target="_blank">Recycling Simplified</a></li>
+    <li><a href="https://swana.org/Resources/RecyclingResources.aspx" target="_blank">SWANA Recycling Resources</a></li>
+    <li><a href="https://www.nrdc.org/stories/recycling-beyond-bin" target="_blank">NRDC</a></li>
+    <li><a href="https://www.wm.com/us/en/inside-wm/recycle-right/recycling-101" target="_blank">Recycling 101 - Waste Management</a></li>
+</ul>
+
+
+<p>Know of a Recycling Resource? Don't be shy! Please share it with the rest of us!</p>
+<a class="submit-button" th:href="@{'/resource/add/'}">Submit A New Resource!</a>
+</div>
+
+</body>
+</html>

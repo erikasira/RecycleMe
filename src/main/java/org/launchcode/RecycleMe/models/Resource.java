@@ -12,23 +12,29 @@ import java.util.List;
 
 
 @Entity
-public class City {
+public class Resource {
 
     @Id
     @GeneratedValue
     private int id;
 
     @NotNull
-    @Size(min=3, max=15)
+    @Size(message = "Please enter the name of the website.")
     private String name;
 
+    @NotNull
+    @Size(message = "Please enter the link to the website.")
+    private String link;
 
 
-    public City(String name) {
+
+    public Resource(String name, String link) {
+
         this.name = name;
+        this.link = link;
     }
 
-    public City() {
+    public Resource() {
     }
 
     public int getId() {
@@ -47,6 +53,11 @@ public class City {
         this.name = name;
     }
 
+    public String getLink() {
+        return link;
+    }
 
-
+    public void setLink(String link) {
+        this.link = link;
+    }
 }

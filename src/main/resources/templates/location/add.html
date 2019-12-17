@@ -23,24 +23,19 @@
 <form th:object="${location}"  method="post">
     <div class = "form-group">
         <label th:for="locationName"><b>Name of Location</b></label>
-        <input class="form-control"  th:field="*{locationName}" placeholder="Enter Location Name" ><br><br>
+        <input class="form-control"  th:field="*{locationName}" placeholder="Enter Location Name" required><br><br>
 
         <label th:for="streetAddress" ><b>Street Address</b></label>
-        <input class="form-control" th:field="*{streetAddress}"  placeholder="Enter Street Address"><br><br>
+        <input class="form-control" th:field="*{streetAddress}"  placeholder="Enter Street Address" required><br><br>
 
         <label th:for="nameCity" ><b>City</b></label>
-        <input class="form-control" th:field="*{nameCity}"  placeholder="Enter the City"><br><br>
+        <input class="form-control" th:field="*{nameCity}"  placeholder="Enter the City" required><br><br>
 
         <label th:for="nameState" ><b>State</b></label>
-        <input class="form-control" th:field="*{nameState}"  placeholder="Enter State"><br><br>
+        <input class="form-control" th:field="*{nameState}"  placeholder="State" size="2"required><br><br>
 
-<!--        <select name="cityId">-->
-<!--            <option th:each="city: ${cities}"-->
-<!--                    th:text="${city.name}"-->
-<!--                    th:value="${city.id}"></option>-->
-<!--        </select>-->
         <br><br>
-        <input type="submit" class="submit-button"value="Add Location" />
+        <input type="submit" class="submit-button"value="Add Location"/>
         <p>Don't see your city as an option? <a href="/city/add">Add it to the list!</a></p>
     </div>
 

@@ -12,21 +12,27 @@
 
 
 <div class="page-head">
-    <h1>Add a New City.</h1>
+    <h1>Add a Recycling Resource.</h1>
+    <p>DISCLAIMER! The resource you add will need to be reviewed by our team prior to appearing on the site!</p>
 </div>
 
 
 
 <div class="container body-content">
 <br>
-    <form th:object="${city}" method="post">
+    <form th:object="${resource}" method="post">
 
         <div class="form-group" th:classappend="${#fields.hasErrors('name') ? 'has-error' : ''}" >
             <label th:for="name"></label>
-            <input class="form-control" th:field="*{name}" placeholder="Enter City Name"/>
+            <input class="form-control" th:field="*{name}" placeholder="Enter the Resource's Name" size="50" required/>
             <span th:errors="*{name}"></span>
             <br><br>
-            <input class="submit-button" type="submit" value="Submit New City" />
+
+            <label th:for="link"></label>
+            <input class="form-control" th:field="*{link}" placeholder="Enter the Resource's Website" size="50" required/>
+            <span th:errors="*{link}"></span>
+            <br><br>
+            <input class="submit-button" type="submit" value="Submit New Resource" />
         </div>
 
     </form>

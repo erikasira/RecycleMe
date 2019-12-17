@@ -24,19 +24,18 @@
 <form th:object="${user}" method="post" th:action="@{/login}">
     <div class="login">
         <label th:for="username"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="username" required><br><br>
+        <input  type="text" placeholder="Enter Username" name="username" required><br><br>
 
 
         <label th:for="password"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="password" required><br><br>
 
-        <button type="submit" class="submit-button">Login</button>
+        <button type="submit" class="submit-button" >Login</button>
 
         <p>Don't have an account? <a href="register">Create one!</a></p>
     </div>
 
 </form>
-
 
 
 

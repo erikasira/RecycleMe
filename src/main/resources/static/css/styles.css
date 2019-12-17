@@ -1,3 +1,7 @@
+@use postcss-color-function;
+@use postcss-nested;
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700,900');
+
 body{
     margin: 0;
     padding: 0;
@@ -93,8 +97,15 @@ body{
 
 .form-group{
    text-align: center;
+   font-family: 'Jaldi', sans-serif;
+
 }
 
+.form-control{
+border-radius: 8px;
+font-family: 'Jaldi', sans-serif;
+
+}
 
 .topnav{
   list-style-type: none;
@@ -130,12 +141,11 @@ body{
 }
 
 
-img {
+img{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  width: 45%;
 }
 
 
@@ -151,14 +161,15 @@ li {
 }
 
 #myInput {
-  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
-  background-position: 10px 12px; /* Position the search icon */
-  background-repeat: no-repeat; /* Do not repeat the icon image */
-  width: 60%; /* Full-width */
-  font-size: 16px; /* Increase font-size */
+  font-family: 'Jaldi', sans-serif;
+  border-radius: 25px;
+  width: 60%;
+  font-size: 20px; /* Increase font-size */
+  color: #296073;
   padding: 12px 20px 12px 40px; /* Add some padding */
-  border: 1px solid #ddd; /* Add a grey border */
+  border: 2px solid #296073; /* Add a grey border */
   margin-bottom: 12px; /* Add some space below the input */
+
 }
 
 #myTable {
@@ -182,5 +193,11 @@ li {
   /* Add a grey background color to the table header and on hover */
   background-color: #f1f1f1;
 }
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+
+
+
 
 

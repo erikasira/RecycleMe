@@ -15,6 +15,7 @@ The purpose
 * CSS
 * Java
 * SpringBoot
+* SQL
 * Thymeleaf
 * Javascript
 ### Necessary To Learn

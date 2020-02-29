@@ -24,3 +24,6 @@ For this project it will be necessary to get even more familiar with databases a
 [Trello project tracker]https://trello.com/b/tClpUk6N/recycleme-project
 ### What's Next
 Eventually I would like to add a blog and tips component to the website. I would also like to add a feature where users are able to search for recycling locations that base one the specific type of item they would like to recycle like textiles or electronics.
+
+### Project on YouTube
+I have created a video of why my project looks like on youtube: https://youtu.be/sxxlsDGJTUU
